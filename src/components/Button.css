@@ -1,0 +1,35 @@
+.button {
+	display: flex;
+	height: 4em;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	font-weight: bolder;
+	font-size: 1.4em;
+	background-color: rgb(42, 52, 110);
+	color: rgb(171, 173, 197);
+	border: 2px solid rgb(63, 69, 123);
+	border-radius: 100em;
+}
+
+.operator {
+	display: flex;
+	height: 4em;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	font-weight: bolder;
+	font-size: 1.4em;
+	background-color: rgb(243, 215, 107);
+	color: rgb(42, 52, 110);
+	border: 2px solid rgb(63, 69, 123);
+	border-radius: 100em;
+}
+
+#equals {
+	height: 8em;
+}
+
+#clear {
+	border: 2px solid rgb(243, 215, 107);
+}
