@@ -4,39 +4,59 @@
 	align-items: center;
 	height: 100vh;
 	width: 100%;
+	font-family: 'Ubuntu', sans-serif;
 }
 
-#clear {grid-area: clear;}
-#divide {grid-area: divide;}
-#times {grid-area: times;}
-#seven {grid-area: seven;}
-#eight {grid-area: eight;}
-#nine {grid-area: nine;}
-#minus {grid-area: minus;}
-#four {grid-area: four;}
-#five {grid-area: five;}
-#six {grid-area: six;}
-#plus {grid-area: plus;}
-#one {grid-area: one;}
-#two {grid-area: two;}
-#three {grid-area: three;}
-#equals {grid-area: equals;}
-#zero {grid-area: zero;}
-#decimal {grid-area: decimal;}
-
-.grid-container {
-	display: grid;
-	grid-template-areas:
-		'clear b divide times'
-		'seven eight nine minus'
-		'four five six plus'
-		'one two three equals'
-		'zero zero decimal equals';
-	grid-gap: 10px;
-	background-color: rgb(42, 52, 110);
+.cal-wrapper {
+	width: 400px;
+	height: 600px;
 }
 
 .row {
 	display: flex;
 	width: 100%;
+}
+
+.button {
+	display: flex;
+	height:4em;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	font-weight: lighter;
+	font-size: 1.4em;
+	background-color: #e0e1e6;
+	color: #888;
+	outline: 1px solid #888;
+}
+
+.clear-button {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	font-weight: lighter;
+	font-size: 1rem;
+	outline: 1px solid #888;
+	background-color: #fe9241;
+	color: #fff;
+}
+
+.operator {
+	background-color: #fe9241;
+	color: #fff;
+}
+
+.input {
+	display: flex;
+	height: 4em;
+	flex: 1;
+	background-color: #000;
+	outline: #888;
+	color: #fff;
+	justify-content: flex-end;
+	padding: 0.5em;
+	font-weight: bold;
+	font-size: 1.4em;
+	align-items: center;
 }

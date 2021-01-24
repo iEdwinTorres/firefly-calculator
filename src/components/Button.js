@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import './Button.css'
+import '../App.css'
 
 class Button extends Component {
 	isOperator = value => {
-		return !isNaN(value) || value === '.' || value === '='
+		return !isNaN(value) || value === "." || value === ''
 	}
 
 	render() {
 		return (
-			<div onClick={() => this.props.handleClick (this.props.children)}>
+			<div className={`button ${this.isOperator(this.props.children) ? '' : 'operator'}`}
+			onClick={() => this.props.handleClick(this.props.children)}>
 				{this.props.children}
 			</div>
 		)

@@ -6,49 +6,121 @@ import ClearButton from './components/ClearButton'
 
 class App extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 
 		this.state = {
 			input: '',
 			previousNumber: '',
 			currentNumber: '',
-			operator: '',
+			operator: ''
 		}
 	}
 
 	addToInput = value => {
-		this.setState({ input: this.state.input + value})
+		this.setState({input: this.state.input + value})
+	}
+
+	addZeroToInput = value => {
+		if (this.state.input !== '') {
+			this.setState({input:this.state.input + value})
+		}
+	}
+
+	addDecimal = value => {
+		if (this.state.input.indexOf('.') === -1) {
+			this.setState({input: this.state.input + value})
+		}
+	}
+
+	clearInput = () => {
+		this.setState({input: ''})
+	}
+
+	add = () => {
+		this.state.previousNumber = this.state.input;
+		this.setState({input: ''});
+		this.state.operator = 'add'
+	}
+
+	subtract = () => {
+		this.state.previousNumber = this.state.input;
+		this.setState({input: ''});
+		this.state.operator = 'subtract'
+	}
+
+		multiply = () => {
+		this.state.previousNumber = this.state.input;
+		this.setState({input: ''});
+		this.state.operator = 'multiply'
+		}
+
+		divide = () => {
+		this.state.previousNumber = this.state.input;
+		this.setState({input: ''});
+		this.state.operator = 'divide'
+	}
+
+	evaluate = () => {
+		this.state.currentNumber = this.state.input
+
+		if (this.state.operator === 'add') {
+			this.setState({
+				input: parseFloat(this.state.previousNumber) + parseFloat(this.state.currentNumber)
+			})
+		} else if (this.state.operator === 'subtract') {
+			this.setState({
+				input: parseInt(this.state.previousNumber) - parseInt(this.state.currentNumber)
+			})
+		} else if (this.state.operator === 'multiply') {
+			this.setState({
+				input: parseInt(this.state.previousNumber) * parseInt(this.state.currentNumber)
+			})
+		} else if (this.state.operator === 'divide') {
+			this.setState({
+				input: parseInt(this.state.previousNumber) / parseInt(this.state.currentNumber)
+			})
+		}
 	}
 
 	render() {
 		return (
-			<div className="app">
-					<div className="input">
-						<Input>000</Input>
+			<div className="App">
+				<div className="cal-wrapper">
+					<div className="row">
+						<Input>{this.state.input === '' ? '0' : this.state.input}</Input>
 					</div>
-				<div className="grid-container">
-					<div className='button' id="clear">C</div>
-					<div className="b"></div>
-					<div className='operator'>÷</div>
-					<div className='operator'>×</div>
-					<div className='button' handleClick={this.addToInput}>7</div>
-					<div className='button'>8</div>
-					<div className='button'>9</div>
-					<div className='operator'>-</div>
-					<div className='button'>4</div>
-					<div className='button'>5</div>
-					<div className='button'>6</div>
-					<div className='operator'>+</div>
-					<div className='button'>1</div>
-					<div className='button'>2</div>
-					<div className='button'>3</div>
-					<div className='operator' id='equals'>=</div>
-					<div className='button' id='zero'>0</div>
-					<div className='button'>.</div>
+					<div className="row">
+						<ClearButton handleClear={this.clearInput}> C </ClearButton>
+						<Button>  </Button>
+						<Button handleClick={this.divide}> / </Button>
+						<Button handleClick={this.multiply}> * </Button>
+					</div>
+					<div className="row">
+						<Button handleClick={this.addToInput}> 7 </Button>
+						<Button handleClick={this.addToInput}> 8 </Button>
+						<Button handleClick={this.addToInput}> 9 </Button>
+						<Button handleClick={this.subtract}> - </Button>
+					</div>
+					<div className="row">
+						<Button handleClick={this.addToInput}> 4 </Button>
+						<Button handleClick={this.addToInput}> 5 </Button>
+						<Button handleClick={this.addToInput}> 6 </Button>
+						<Button handleClick={this.add}> + </Button>
+					</div>
+					<div className="row">
+						<Button handleClick={this.addToInput}> 1 </Button>
+						<Button handleClick={this.addToInput}> 2 </Button>
+						<Button handleClick={this.addToInput}> 3 </Button>
+						<Button handleClick={this.evaluate}> = </Button>
+					</div>
+					<div className="row">
+						<Button Button handleClick={this.addZeroToInput}> 0 </Button>
+						<Button handleClick={this.addDecimal}> . </Button>
+					</div>
 				</div>
 			</div>
 		)
 	}
 }
 
-export default App;
+export default App
