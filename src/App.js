@@ -65,7 +65,7 @@ class App extends Component {
 
 		if (this.state.operator === 'add') {
 			this.setState({
-				input: parseFloat(this.state.previousNumber) + parseFloat(this.state.currentNumber)
+				input: parseInt(this.state.previousNumber) + parseInt(this.state.currentNumber)
 			})
 		} else if (this.state.operator === 'subtract') {
 			this.setState({
