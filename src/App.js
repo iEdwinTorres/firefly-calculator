@@ -102,7 +102,7 @@ class App extends Component {
 						<Button handleClick={this.subtract}> - </Button>
 					</div>
 					<div className="row">
-						<Button handleClick={this.addToInput}> 4</Button>
+						<Button handleClick={this.addToInput}>4</Button>
 						<Button handleClick={this.addToInput}>5</Button>
 						<Button handleClick={this.addToInput}>6</Button>
 						<Button handleClick={this.add}> + </Button>
@@ -114,7 +114,7 @@ class App extends Component {
 						<Button handleClick={this.evaluate}> = </Button>
 					</div>
 					<div className="row">
-						<Button Button handleClick={this.addZeroToInput}> 0 </Button>
+						<Button Button handleClick={this.addZeroToInput}>0</Button>
 						<Button handleClick={this.addDecimal}>.</Button>
 					</div>
 				</div>
